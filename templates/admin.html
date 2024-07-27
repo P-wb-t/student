@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+        <!-- 导入框架的css -->
+ <link rel="stylesheet" href="/static/bootstrap.css">
+</head>
+<body>
+<table class="table" style="width: 600px;margin: 100px auto">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">chinese</th>
+      <th scope="col">math</th>
+      <th scope="col">english</th>
+      <th scope="col">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- 需要将python对象的数据显示到浏览器上，需要用到模板语法工具，用python去生成HTML语法
+           比较常见的模板语法jinja2（flask） numjucks(javascript) moka(django) vue
+          jinja2可以直接在HTML中也python的逻辑，但是写的时候也需要前后有一个特殊的标记，比如引入一个对象需要用两个大括号 -->
+
+  <!-- 把python程序中的students数据展示在表格中，首先要从列表中拿字典，再拿内容，显示到表格位置 -->
+  {% for stu in students %}  <!--这些都是在HTML中写python逻辑所用到的格式，和之前jsp一样-->
+      <tr>
+          <th>{{ stu.name }}</th>
+          <td>{{stu.chinese}}</td>
+          <td>{{ stu.math }}</td>
+          <td>{{ stu.english }}</td>  <!--注意这里仍要使用jinja2对应的标签，才能识别python语句，否则程序就当做HTML标签展示了-->
+          <td><a href="/delete?name={{ stu.name }}">删除</a>  <a href="/change?name={{ stu.name }}">修改</a> </td>
+      <!--?name={{ stu.name }}这一串是为了请求的时候带上这一串参数，在python中可以通过args方法获取传入的数据-->
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<!--这里开始做一些增删改的操作-->
+<!--增加项目仍然需要模块，div可以自己在框架中复制需要几列几行，设计-->
+<div class="container" style="width: 600px;margin: 10px auto">
+  <div class="row">
+  <div class="col-4">
+    <a href="/add">新增学员信息</a>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>

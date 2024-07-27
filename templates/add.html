@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <!-- 修改导入框架的css -->
+  <link rel="stylesheet" href="/static/bootstrap.css">
+</head>
+<body>
+<form style="width: 400px; margin:100px auto" method="post">
+    <!-- auto是自动对齐，margin调整左右页边距，这里使其居中 -->
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text"
+           class="form-control"
+           id="exampleInputEmail1"
+           aria-describedby="emailHelp"
+           name="username"
+    >
+  </div>
+  <div class="mb-3">
+    <label for="chinese" class="form-label" >chinese</label>
+    <input type="text" class="form-control" id="chinese" name="chinese">
+  </div>
+  <div class="mb-3">
+    <label for="math" class="form-label" >math</label>
+    <input type="text" class="form-control" id="math" name="math">
+  </div>
+  <div class="mb-3">
+    <label for="english" class="form-label" >english</label>
+    <input type="text" class="form-control" id="english" name="english">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>
